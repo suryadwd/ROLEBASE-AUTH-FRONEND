@@ -20,17 +20,53 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+# My Next.js App – Route Overview
 
-To learn more about Next.js, take a look at the following resources:
+This project uses the **App Router** (`app/`) structure introduced in Next.js 13+.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Below is a list of routes and their functionalities.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔐 Auth Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| URL                              | Description                       |
+|----------------------------------|-----------------------------------|
+| `/auth/forget-password`         | Request a password reset link     |
+| `/auth/login`                   | User login page                   |
+| `/auth/register`                | User registration page            |
+| `/auth/reset-password`         | Reset password with token/link    |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📊 Dashboard Routes
+
+| URL                                                | Description                                  |
+|----------------------------------------------------|----------------------------------------------|
+| `/dashboard/add-group`                             | Add a new group                              |
+| `/dashboard/check-permission-group`                | Check permissions of a specific group        |
+| `/dashboard/create-group`                          | Create a group (possibly with more config)   |
+| `/dashboard/delete-group`                          | Delete a specific group                      |
+| `/dashboard/home`                                  | Dashboard homepage or overview               |
+| `/dashboard/register-user`                         | Register a new user (admin panel)            |
+| `/dashboard/remove-group`                          | Remove a group from the system               |
+| `/dashboard/update-group-permission`               | Modify group permission settings             |
+| `/dashboard/users`                                 | List or manage users                         |
+| `/dashboard/verify-user`                           | Verify user account manually                 |
+
+---
+
+## 🧠 Custom Hooks
+
+- `useCurrentUser.ts`: Custom hook to get the currently logged-in user data.
+
+---
+
+
+
+## 🛠️ Notes
+
+- This project uses TypeScript (`.tsx`) and follows modular routing.
+- All routes under `/app` are server components by default unless marked otherwise.
+- You can access pages via the corresponding URLs unless dynamic route segments or middleware are applied.
+
