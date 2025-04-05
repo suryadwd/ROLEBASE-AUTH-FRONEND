@@ -4,7 +4,7 @@
 This project uses the **App Router** (`app/`) structure introduced in Next.js 13+.
 
 Below is a list of routes and their functionalities.
-
+While the backend is not deployed yet and will be deployed soon
 ---
 
 ## 🔐 Auth Routes
