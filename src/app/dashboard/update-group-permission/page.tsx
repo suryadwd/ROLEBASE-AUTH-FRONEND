@@ -22,7 +22,10 @@ export default function Home() {
   const navigation = useRouter();
 
   // Function to toggle permissions
-  const handlePermissionChange = (category: string, type: string) => {
+  const handlePermissionChange = (
+    category: keyof typeof data.permissions,
+    type: keyof typeof data.permissions["posts"]
+  ) => {
     setData((prevData) => ({
       ...prevData,
       permissions: {
@@ -88,10 +91,10 @@ export default function Home() {
           <div className="border p-4 rounded-md">
             <h3 className="text-lg font-semibold">Permissions</h3>
 
-            {Object.keys(data.permissions).map((category) => (
+            {(Object.keys(data.permissions) as Array<keyof typeof data.permissions>).map((category) => (
               <div key={category} className="mt-3">
                 <p className="font-medium">{category}</p>
-                {["create", "edit", "delete", "view"].map((type) => (
+                {(["create", "edit", "delete", "view"] as Array<keyof typeof data.permissions["posts"]>).map((type) => (
                   <label key={type} className="flex items-center space-x-2">
                     <input
                       type="checkbox"

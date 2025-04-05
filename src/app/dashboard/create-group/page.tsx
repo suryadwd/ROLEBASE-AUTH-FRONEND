@@ -21,7 +21,7 @@ export default function Home() {
 
   const navigate = useRouter()
 
-  const handlePermissionChange = (permission: string) => {
+  const handlePermissionChange = (permission: keyof typeof data.permissions) => {
     setData((prevData) => ({
       ...prevData,
       permissions: {

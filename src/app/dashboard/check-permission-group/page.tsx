@@ -5,11 +5,15 @@ import axios from "axios";
 
 
 export default function ViewGroupPermissions() {
-  const [permissions, setPermissions] = useState([]);
+  interface Permission {
+    groupName: string;
+    role: string;
+    permissions: string[];
+  }
 
-  
+  const [permissions, setPermissions] = useState<Permission[]>([]);
 
- 
+   
   useEffect(() => {
     const fetchPermissions = async () => {
       try {
@@ -27,9 +31,7 @@ export default function ViewGroupPermissions() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="border p-4 rounded-4xl flex flex-col items-center gap-4 w-96">
-        <h2 className="text-xl font-bold">Group Permissions</h2>
-
-        
+        <h2 className="text-xl font-bold">Group Permissions</h2>  
 
         <ul className="w-full text-left">
           {permissions.length > 0 ? (
